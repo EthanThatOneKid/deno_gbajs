@@ -13,8 +13,8 @@ and as such, it is difficult to use in TypeScript projects.
 
 As for the core runtime, this project uses the original gba.js code imported
 from NPM package [`gbajs`](https://www.npmjs.com/package/gbajs). The only
-changes are to the build system and the addition of TypeScript type definitions.
-The original gba.js license is linked below.
+changes are the addition of TypeScript type definitions, utility functions, and
+constants. The original gba.js license is linked below.
 
 ## License
 
@@ -22,4 +22,4 @@ The original gba.js license is linked below.
 
 ---
 
-Developed with 🦕 by [**@EthanThatOneKid](https://etok.codes/)
+Developed with 🦕 by [**@EthanThatOneKid**](https://etok.codes/)
