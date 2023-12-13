@@ -21,38 +21,29 @@ try {
   // No save data found.
 }
 
-const stepsToProcess = 100_000;
-let step = 0;
-while (step < stepsToProcess) {
+const framesPerTick = 1600;
+let frame = 0;
+
+while (frame < framesPerTick) {
   // Run one step of the emulator.
+  // core.advanceFrame();
   core.step();
-  step++;
 
-  if (step % 100 === 0) {
+  // Create a PNG of the current frame.
+  if (core.context && frame % 10 === 0) {
     core.keypad.press(KeyCode.START, 1);
-    console.log("Pressed START");
-    saveFrame();
-  }
-}
-
-saveFrame(0);
-
-// function sleep(ms: number) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
-
-async function saveFrame(n = step) {
-  if (core.context) {
-    const pngData = encodePNG(
+    const pngData = await encodePNG(
       core.context.pixelData.data, // ?? new Uint8Array(WIDTH * HEIGHT * 4).fill(0xFF),
       WIDTH,
       HEIGHT,
     );
     await Deno.writeFile(
-      `./test/frame-${n}.png`,
+      `./test/frame-${frame}.png`,
       pngData,
     );
   }
+
+  frame++;
 }
 
 // Write save data to disk.
