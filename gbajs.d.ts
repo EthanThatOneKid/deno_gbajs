@@ -110,6 +110,9 @@ interface GameBoyAdvanceVideo {
 interface GameBoyAdvanceKeypad {
   // Public methods
   registerHandlers(): void;
+  press(key: number, time: number): void;
+  keydown(key: number): void;
+  keyup(key: number): void;
 }
 
 interface GameBoyAdvanceSIO {
