@@ -1,0 +1,37 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:gbajs@1.1.2": "npm:gbajs@1.1.2"
+    },
+    "npm": {
+      "buffer-dataview@0.0.2": {
+        "integrity": "sha512-YiNEgOoMDO8KrJqptlJYZBrZ9qXajxiaWF0YPU7LC0ywmJ8RVt7R28Y8AlJy97upM5GCQyeBKDeFTXq/Xec5Ow==",
+        "dependencies": {}
+      },
+      "gbajs@1.1.2": {
+        "integrity": "sha512-+jsgHM+qA0J/E1xE86BZu2P0ysqwIcGmkRSoyS7ECfO+Ic+jaajcVUWGx1Pp0sC/sRGWV+/mOg0Y+8IG9WKjxA==",
+        "dependencies": {
+          "buffer-dataview": "buffer-dataview@0.0.2",
+          "pngjs": "pngjs@3.4.0"
+        }
+      },
+      "pngjs@3.4.0": {
+        "integrity": "sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==",
+        "dependencies": {}
+      }
+    }
+  },
+  "redirects": {
+    "https://github.com/DjDeveloperr/DenoGBA/raw/7e71e785ea2fb88ef22fff9f9b2cf17c5164a4a5/bios.js": "https://raw.githubusercontent.com/DjDeveloperr/DenoGBA/7e71e785ea2fb88ef22fff9f9b2cf17c5164a4a5/bios.js"
+  },
+  "remote": {
+    "https://deno.land/std@0.208.0/encoding/_util.ts": "f368920189c4fe6592ab2e93bd7ded8f3065b84f95cd3e036a4a10a75649dcba",
+    "https://deno.land/std@0.208.0/encoding/base64.ts": "81c0ecff5ccb402def58ca03d8bd245bd01da15a077d3362b568e991aa10f4d9",
+    "https://deno.land/x/lz4@v0.1.2/mod.ts": "4decfc1a3569d03fd1813bd39128b71c8f082850fe98ecfdde20025772916582",
+    "https://deno.land/x/lz4@v0.1.2/wasm.js": "b9c65605327ba273f0c76a6dc596ec534d4cda0f0225d7a94ebc606782319e46",
+    "https://deno.land/x/pngs@0.1.1/mod.ts": "9dc8a7daed1497b94a77b68c954164a9f0b2a6f40866481bdfdbbaf015b5f764",
+    "https://deno.land/x/pngs@0.1.1/wasm.js": "e3d4a8f293b267c9859a2164ca7b4603869bc92fe0d5ad4f109925858bce0c4c",
+    "https://raw.githubusercontent.com/DjDeveloperr/DenoGBA/7e71e785ea2fb88ef22fff9f9b2cf17c5164a4a5/bios.js": "aa5c283a09adc999f925e895da723fe93f71aec45c19d6222f3ddbac65cd0425"
+  }
+}

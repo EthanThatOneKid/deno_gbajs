@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "lib": ["deno.ns", "deno.unstable", "dom"]
+  },
+  "tasks": {
+    "lock": "deno cache --lock=deno.lock --lock-write deps.ts",
+    "udd": "deno run -Ar https://deno.land/x/udd/main.ts deps.ts && deno task lock",
+    "embedder": "deno run -Ar ./tasks/embedder/main.ts"
+  },
+  "imports": {
+    "gbajs/": "./"
+  }
+}
