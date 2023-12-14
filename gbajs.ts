@@ -4,8 +4,6 @@ import type { FrozenState, GBACore, Serializer } from "gbajs/gbajs.d.ts";
 export const BIOS = decodeBase64(BIOS_BIN);
 export const SERIALIZER: Serializer = _Serializer.Serializer;
 
-console.log({ SERIALIZER });
-
 export const WIDTH = 240;
 export const HEIGHT = 160;
 
@@ -57,7 +55,7 @@ function uriToArrayBuffer(uri: string): Promise<ArrayBuffer> {
 // }
 
 export async function deserializeState(
-  serializedState: ArrayBuffer,
+  serializedState: string,
 ): Promise<FrozenState> {
   // try {
   // 	Serializer.deserializePNG(state, function (result) {
@@ -67,30 +65,31 @@ export async function deserializeState(
   // } catch (exception) {
   // 	gba.ERROR('Failed to load savestate', exception);
   // }
-  const { promise, resolve } = Promise.withResolvers<FrozenState>();
-  SERIALIZER.deserialize(serializedState, (result) => {
-    resolve(result);
-  });
-  const state = await promise;
-  console.log({ state });
-  return state;
+  //
+  // const { promise, resolve } = Promise.withResolvers<FrozenState>();
+  // SERIALIZER.deserialize(serializedState, (result) => {
+  //   resolve(result);
+  // });
+  // const state = await promise;
+  // console.log({ state });
+  // return state;
 
-  // const state = JSON.parse(serializedState);
-  // const ram = await uriToArrayBuffer(state.mmu.ram);
-  // const iram = await uriToArrayBuffer(state.mmu.iram);
-  // const registers = await uriToArrayBuffer(state.io.registers);
-  // return {
-  //   ...state,
-  //   mmu: {
-  //     ...state.mmu,
-  //     ram,
-  //     iram,
-  //   },
-  //   io: {
-  //     ...state.io,
-  //     registers,
-  //   },
-  // };
+  const state = JSON.parse(serializedState);
+  const ram = await uriToArrayBuffer(state.mmu.ram);
+  const iram = await uriToArrayBuffer(state.mmu.iram);
+  const registers = await uriToArrayBuffer(state.io.registers);
+  return {
+    ...state,
+    mmu: {
+      ...state.mmu,
+      ram,
+      iram,
+    },
+    io: {
+      ...state.io,
+      registers,
+    },
+  };
 }
 
 function blobToURI(blob: Blob): Promise<string> {
@@ -103,35 +102,33 @@ function blobToURI(blob: Blob): Promise<string> {
   });
 }
 
-export function serializeState(
+export async function serializeState(
   state: FrozenState,
-): Promise<ArrayBuffer> {
+): Promise<string> {
   // var state = gba.freeze();
   // Serializer.serializePNG(Serializer.serialize(state), master.document.getElementById('screen'), function(url) {
   // 	var img = document.getElementById('saveState');
   // 	img.setAttribute('src', url);
   // });
+  //
+  // const serializedState = SERIALIZER.serialize(state);
+  // return Promise.resolve(serializedState);
 
-  const serializedState = SERIALIZER.serialize(state);
-  return Promise.resolve(serializedState);
-
-  // const serializedRam = await blobToURI(state.mmu.ram);
-  // const serializedIram = await blobToURI(state.mmu.iram);
-  // const serializedRegisters = await blobToURI(state.io.registers);
-  // return Promise.resolve(JSON.stringify(
-  //   {
-  //     ...state,
-  //     mmu: {
-  //       ram: serializedRam,
-  //       iram: serializedIram,
-  //     },
-  //     io: {
-  //       registers: serializedRegisters,
-  //     },
-  //   },
-  //   null,
-  //   2,
-  // ));
+  const serializedRam = await blobToURI(state.mmu.ram);
+  const serializedIram = await blobToURI(state.mmu.iram);
+  const serializedRegisters = await blobToURI(state.io.registers);
+  return JSON.stringify(
+    {
+      ...state,
+      mmu: {
+        ram: serializedRam,
+        iram: serializedIram,
+      },
+      io: {
+        registers: serializedRegisters,
+      },
+    },
+    null,
+    2,
+  );
 }
-
-export { _GBACore as GBACore };

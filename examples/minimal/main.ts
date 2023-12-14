@@ -30,8 +30,9 @@ async function writeSave(c: GBACore) {
 
 async function readState() {
   try {
-    const serializedState = Deno.readFileSync("./state.sav");
+    const serializedState = Deno.readTextFileSync("./state.sav");
     const state = await deserializeState(serializedState);
+    // TODO: Fix state deserialization because it's not working.
     return state;
   } catch (error) {
     console.log({ error });
@@ -43,7 +44,7 @@ async function writeState(c: GBACore) {
   const state = c.freeze();
   console.log({ newState: state });
   const serializedState = await serializeState(state);
-  Deno.writeFileSync("./state.sav", new Uint8Array(serializedState));
+  Deno.writeTextFileSync("./state.sav", serializedState);
 }
 
 // Create the core.
