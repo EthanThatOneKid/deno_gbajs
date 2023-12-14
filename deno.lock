@@ -2,9 +2,34 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:gbajs@1.1.2": "npm:gbajs@1.1.2"
+      "npm:gbajs@1.1.2": "npm:gbajs@1.1.2",
+      "npm:msgpackr@1.10.0": "npm:msgpackr@1.10.0"
     },
     "npm": {
+      "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.2": {
+        "integrity": "sha512-9bfjwDxIDWmmOKusUcqdS4Rw+SETlp9Dy39Xui9BEGEk19dDwH0jhipwFzEff/pFg95NKymc6TOTbRKcWeRqyQ==",
+        "dependencies": {}
+      },
+      "@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.2": {
+        "integrity": "sha512-lwriRAHm1Yg4iDf23Oxm9n/t5Zpw1lVnxYU3HnJPTi2lJRkKTrps1KVgvL6m7WvmhYVt/FIsssWay+k45QHeuw==",
+        "dependencies": {}
+      },
+      "@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.2": {
+        "integrity": "sha512-FU20Bo66/f7He9Fp9sP2zaJ1Q8L9uLPZQDub/WlUip78JlPeMbVL8546HbZfcW9LNciEXc8d+tThSJjSC+tmsg==",
+        "dependencies": {}
+      },
+      "@msgpackr-extract/msgpackr-extract-linux-arm@3.0.2": {
+        "integrity": "sha512-MOI9Dlfrpi2Cuc7i5dXdxPbFIgbDBGgKR5F2yWEa6FVEtSWncfVNKW5AKjImAQ6CZlBK9tympdsZJ2xThBiWWA==",
+        "dependencies": {}
+      },
+      "@msgpackr-extract/msgpackr-extract-linux-x64@3.0.2": {
+        "integrity": "sha512-gsWNDCklNy7Ajk0vBBf9jEx04RUxuDQfBse918Ww+Qb9HCPoGzS+XJTLe96iN3BVK7grnLiYghP/M4L8VsaHeA==",
+        "dependencies": {}
+      },
+      "@msgpackr-extract/msgpackr-extract-win32-x64@3.0.2": {
+        "integrity": "sha512-O+6Gs8UeDbyFpbSh2CPEz/UOrrdWPTBYNblZK5CxxLisYt4kGX3Sc+czffFonyjiGSq3jWLwJS/CCJc7tBr4sQ==",
+        "dependencies": {}
+      },
       "buffer-dataview@0.0.2": {
         "integrity": "sha512-YiNEgOoMDO8KrJqptlJYZBrZ9qXajxiaWF0YPU7LC0ywmJ8RVt7R28Y8AlJy97upM5GCQyeBKDeFTXq/Xec5Ow==",
         "dependencies": {}
@@ -15,6 +40,28 @@
           "buffer-dataview": "buffer-dataview@0.0.2",
           "pngjs": "pngjs@3.4.0"
         }
+      },
+      "msgpackr-extract@3.0.2": {
+        "integrity": "sha512-SdzXp4kD/Qf8agZ9+iTu6eql0m3kWm1A2y1hkpTeVNENutaB0BwHlSvAIaMxwntmRUAUjon2V4L8Z/njd0Ct8A==",
+        "dependencies": {
+          "@msgpackr-extract/msgpackr-extract-darwin-arm64": "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.2",
+          "@msgpackr-extract/msgpackr-extract-darwin-x64": "@msgpackr-extract/msgpackr-extract-darwin-x64@3.0.2",
+          "@msgpackr-extract/msgpackr-extract-linux-arm": "@msgpackr-extract/msgpackr-extract-linux-arm@3.0.2",
+          "@msgpackr-extract/msgpackr-extract-linux-arm64": "@msgpackr-extract/msgpackr-extract-linux-arm64@3.0.2",
+          "@msgpackr-extract/msgpackr-extract-linux-x64": "@msgpackr-extract/msgpackr-extract-linux-x64@3.0.2",
+          "@msgpackr-extract/msgpackr-extract-win32-x64": "@msgpackr-extract/msgpackr-extract-win32-x64@3.0.2",
+          "node-gyp-build-optional-packages": "node-gyp-build-optional-packages@5.0.7"
+        }
+      },
+      "msgpackr@1.10.0": {
+        "integrity": "sha512-rVQ5YAQDoZKZLX+h8tNq7FiHrPJoeGHViz3U4wIcykhAEpwF/nH2Vbk8dQxmpX5JavkI8C7pt4bnkJ02ZmRoUw==",
+        "dependencies": {
+          "msgpackr-extract": "msgpackr-extract@3.0.2"
+        }
+      },
+      "node-gyp-build-optional-packages@5.0.7": {
+        "integrity": "sha512-YlCCc6Wffkx0kHkmam79GKvDQ6x+QZkMjFGrIMxgFNILFvGSbCp2fCBC55pGTT9gVaz8Na5CLmxt/urtzRv36w==",
+        "dependencies": {}
       },
       "pngjs@3.4.0": {
         "integrity": "sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==",
@@ -32,6 +79,13 @@
     "https://deno.land/x/lz4@v0.1.2/wasm.js": "b9c65605327ba273f0c76a6dc596ec534d4cda0f0225d7a94ebc606782319e46",
     "https://deno.land/x/pngs@0.1.1/mod.ts": "9dc8a7daed1497b94a77b68c954164a9f0b2a6f40866481bdfdbbaf015b5f764",
     "https://deno.land/x/pngs@0.1.1/wasm.js": "e3d4a8f293b267c9859a2164ca7b4603869bc92fe0d5ad4f109925858bce0c4c",
+    "https://deno.land/x/superserial@0.3.4/deserialize.ts": "444c0d2017bc30665c0db00dd1980e35b53fbe2aa1ce1fcda45e7c5d4609ffce",
+    "https://deno.land/x/superserial@0.3.4/mod.ts": "c3202f75812fc7e81088bebfa40b7901d3fa58724380707438a569d6a2e0ec47",
+    "https://deno.land/x/superserial@0.3.4/parse.ts": "9fab6ce12f5879265fd0cf2898b06014d419e5193dc1656547153f267abd184e",
+    "https://deno.land/x/superserial@0.3.4/serialize.ts": "d06b863ee27dadb56e9e67e6a72bf3e1ba8be146c46c59f3a95b88e725182b2b",
+    "https://deno.land/x/superserial@0.3.4/serializer.ts": "92fc99459d7daf2d6dce1d0b320fc63eb379d93023bd9f1720ebd310699c4a72",
+    "https://deno.land/x/superserial@0.3.4/symbol.ts": "1b2d5edbe4876716ca75ec37be691bc217cdda702f39c4d7541aec604e01abac",
+    "https://deno.land/x/superserial@0.3.4/types.ts": "ff18d7a3a52b549928392c2de8c12193abf184f0ecf8ec259de3a8f87cd3ffe3",
     "https://raw.githubusercontent.com/DjDeveloperr/DenoGBA/7e71e785ea2fb88ef22fff9f9b2cf17c5164a4a5/bios.js": "aa5c283a09adc999f925e895da723fe93f71aec45c19d6222f3ddbac65cd0425"
   }
 }
